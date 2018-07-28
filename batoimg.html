@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="utf-8"/>
+    <style>
+        #mp {
+            overflow: show;
+            background-color:#fff;
+            display: block;
+            min-height: 75%;
+            width:100%;
+            }
+        #inla{
+            height:100%;
+            overflow:scroll;
+            border-radius: 8px;
+            border:2px solid #f1f1f1;
+            padding:5px;
+            margin-right:9px;
+            display: inline-block;
+            }
+        button{
+            border-radius: 8px;
+            border:2px solid #f1f1f1;
+            padding:5px;
+            }
+        button:active{
+            border:2px solid #000;
+            }
+        #on:active{height:100%;width:100%;margin:2%;}
+        #on{
+            border-radius: 8px;
+            padding:4px;
+            margin:10%;
+            }
+        body{
+            background-color:#f1f1f1;
+            }
+        #text{
+            border-right:2px solid #f1f1f1;
+        }
+        .resize{
+            height:100%;
+            width:100%;
+        }
+    </style>
+    <script>
+        function op() {
+            var omr = "data:image/png;base64,";
+            var ro = document.getElementById('inla').value;
+            ro = ro.replace(/(\r\n|\n|\r)/gm, "");
+            ro = ro.replace(/\s+/g, '');
+            if (ro.indexOf(',') < 0) { ro = omr+ro; };
+            document.getElementById('on').setAttribute('src', ro);
+        }
+    </script>
+
+</head>
+
+<body>
+    <center>
+    <h3>Decode a base 64 image!</h3>
+    <div id="mp">
+    <table class="resize">
+        <tr>
+            <td align="center">Base64 code:</td>
+            <td align='center'>Image:</td>
+        </tr>
+        <tr>
+            <td align='center' id='text'>
+                <textarea id='inla'></textarea>
+            </td>
+            <td align='center'>
+                <img alt='base64 image' src='' id='on'></img>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <br><br>
+    <button onclick='op()'>MOve on...</button>
+</center>
+</body>
+
+</html>
